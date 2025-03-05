@@ -11,9 +11,8 @@ Autoloader::register();
 try{
   $httpRequest = new HttpRequest();
   $router = new Router();
-  var_dump("here");
   $httpRequest->setRoute($router->findRoute($httpRequest, $config->basepath));
   $httpRequest->run($config);
 }catch(Exception $e){
-  throw new Exception("Erreur : {$e}");
+  ErrorController::showError(404);
 }

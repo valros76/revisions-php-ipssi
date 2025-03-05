@@ -1,0 +1,201 @@
+:root {
+  /* COLOR */
+  --color-white: #faf6fe;
+  --color-black: #160d1c;
+  --color-valid: #3fe9a8;
+  --color-warning: #e9833f;
+  --color-error: #e93f3f;
+  --color-info: #8b3fe9;
+
+  /* FONTS */
+  --font-family-title: system-ui, sans-serif;
+  --font-family-text: system-ui, sans-serif;
+  --font-family-monospace: monospace;
+  --font-size-base: 16px;
+  --font-size-title-h1: 1.65rem;
+  --font-size-title-h2: 1.45rem;
+  --font-size-title-h3: 1.4rem;
+  --font-size-title-h4: 1.375rem;
+  --font-size-title-h5: 1.35rem;
+  --font-size-title-h6: 1.325rem;
+  --font-size-subtitle: 1.2rem;
+  --font-size-important: 1.1rem;
+  --font-size-text: 1rem;
+  --font-size-small: .9rem;
+  --font-weight-small: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-bolder: 900;
+
+  /* SPACING */
+  --spacing-null: 0;
+  --spacing-small: .5rem;
+  --spacing-regular: 1rem;
+  --spacing-medium: 1.25rem;
+  --spacing-large: 1.5rem;
+  --spacing-text-small: .025rem;
+  --spacing-text-regular: .05rem;
+  --spacing-text-large: .075rem;
+
+  /* BORDER RADIUS */
+  --border-radius: .9rem;
+  --border-radius-small: .69rem;
+  --border-radius-regular: .9rem;
+  --border-radius-large: 1.56rem;
+  --border-radius-pill: 6.25em;
+  --border-radius-round: 999rem;
+}
+
+*,
+*::before,
+*::after {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--spacing-text-small);
+}
+
+html,
+body {
+  margin: var(--spacing-null);
+  padding: var(--spacing-null);
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  font-size: var(--font-size-text);
+  line-height: 110%;
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+h1 {
+  font-size: var(--font-size-title-h1)
+}
+
+h2 {
+  font-size: var(--font-size-title-h2)
+}
+
+h3 {
+  font-size: var(--font-size-title-h3)
+}
+
+h4 {
+  font-size: var(--font-size-title-h4)
+}
+
+h5 {
+  font-size: var(--font-size-title-h5)
+}
+
+h6 {
+  font-size: var(--font-size-title-h6)
+}
+
+.subtitle {
+  font-size: var(--font-size-subtitle);
+}
+
+.important {
+  font-size: var(--font-size-important);
+}
+
+.small {
+  font-size: var(--font-size-small);
+}
+
+ul{
+  list-style:square;
+}
+
+a,
+a:visited {
+  display: inline-block;
+  text-align: center;
+  font-family: monospace;
+  font-size: var(--font-size-important);
+  font-weight: var(--font-weight-medium);
+  background-color: var(--color-white);
+  color: var(--color-info);
+  border: .25rem solid var(--color-white);
+  border-radius: var(--border-radius-pill);
+  transition: opacity .125s linear;
+
+  &:hover {
+    opacity: .9;
+  }
+
+  &:active {
+    opacity: .7;
+  }
+
+  &:is(.cta-links) {
+    width: max-content;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--padding-small);
+    font-weight: var(--font-weight-bold);
+    border-radius: var(--border-radius-pill);
+    margin-inline: auto;
+    margin-block: var(--spacing-large) var(--spacing-small);
+    padding: var(--spacing-small) var(--spacing-large);
+  }
+}
+
+.main-head {
+  padding: var(--spacing-small) var(--spacing-regular);
+}
+
+.main-content {
+  min-height: 100dvh;
+  padding: var(--spacing-small) var(--spacing-regular);
+}
+
+.main-sections {
+  width:max(350px, 1200px);
+  max-width:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:stretch;
+  gap:var(--spaccing-small);
+  margin-inline:auto;
+  padding: var(--spacing-small) var(--spacing-regular);
+}
+
+.error-sections {
+  width: max-content;
+  background-color: var(--color-error);
+  color: var(--color-white);
+  padding: var(--spacing-regular) var(--spacing-large);
+  margin-inline: auto;
+  border-radius: var(--border-radius);
+}
+
+
+.main-articles {
+  width:max(350px, 800px);
+  max-width:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:stretch;
+  gap:var(--spaccing-small);
+  background-color: var(--color-info);
+  color: var(--color-white);
+  padding: var(--spacing-regular) var(--spacing-large);
+  margin-inline: auto;
+  border-radius: var(--border-radius);
+}
+
+.main-foot {
+  padding: var(--spacing-small) var(--spacing-regular);
+}

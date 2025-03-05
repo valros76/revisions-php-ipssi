@@ -14,5 +14,12 @@
     "params": [
       "params"
     ]
+  },
+  {
+    "path": "/erreur/404",
+    "method": "GET",
+    "controller": "Error",
+    "action": "showError",
+    "params": []
   }
 ]
