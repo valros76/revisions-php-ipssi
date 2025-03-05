@@ -15,6 +15,8 @@
     </h1>
   </header>
 
+  <?php file_exists("app/templates/fragments/main-nav.php") ? include_once "app/templates/fragments/main-nav.php" : null?>
+
   <main class="main-content">
     <?= $mainContent ?? ErrorController::showError("404") ?>
   </main>
