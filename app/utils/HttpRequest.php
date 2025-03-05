@@ -65,8 +65,29 @@ class HttpRequest
       case "DELETE":
         foreach ($this->route->getParams() as $param) {
           $this->params[] = file_get_contents("php://input");
-          foreach($this->params as $key => $value){
-            if(!str_contains($value, "=")) continue;
+          if (count($this->getParams()) > 0) {
+            $paramZero = $this->getParams()[0];
+            if (str_contains($paramZero, "&")) {
+              $this->params[] = explode("&", $paramZero);
+              unset($this->params[0]);
+            }
+          }
+          foreach ($this->params as $key => $value) {
+            if (gettype($value) === "array") {
+              $newParams = [];
+              foreach ($value as $k=>$v) {
+                $paramTotalLength = strlen($v);
+                $posEqual = strpos($v, "=");
+                $newKey = substr($v, 0, $posEqual);;
+                $newValue = substr($v, $posEqual, $paramTotalLength - $posEqual);
+                $newValue = str_replace("=", "", $newValue);
+                $newParams[$newKey] = $newValue;
+                $this->params = [];
+                $this->params["params"] = $newParams;
+              }
+              break;
+            };
+            if (!str_contains($value, "=")) continue;
             $paramTotalLength = strlen($value);
             $posEqual = strpos($value, "=");
             $newKey = substr($value, 0, $posEqual);;
@@ -74,15 +95,7 @@ class HttpRequest
             $newValue = str_replace("=", "", $newValue);
             $this->params[$key] = [$newKey => $newValue];
           }
-          // if(isset($_POST[$param]))
-          // {
-          //   $this->params[] = $_POST[$param];
-          // }
         }
-        // foreach($this->route->getParams() as $param)
-        // {
-        // 	$this->params[] = $param;
-        // }
         break;
     }
   }

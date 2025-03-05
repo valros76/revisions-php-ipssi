@@ -39,7 +39,7 @@ ob_start();
                 </button>
               </form>
               <form action="/users/delete" method="POST">
-                <input type="hidden" value="<?= $user->id ?>" name="id">
+                <input type="hidden" value="<?= $user->id; ?>" name="id">
                 <button type="submit" class="cta">
                   Supprimer
                 </button>

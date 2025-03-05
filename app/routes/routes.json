@@ -19,7 +19,7 @@
     "path": "/users/add",
     "method": "GET",
     "controller": "User",
-    "action": "add",
+    "action": "showAddForm",
     "params": []
   },
   {
@@ -33,13 +33,15 @@
   },
   {
     "path": "/users/update",
-    "method": "GET",
+    "method": "POST",
     "controller": "User",
-    "action": "update",
-    "params": []
+    "action": "showUpdateForm",
+    "params": [
+      "params"
+    ]
   },
   {
-    "path": "/users/update",
+    "path": "/users/apply-update",
     "method": "POST",
     "controller": "User",
     "action": "update",
