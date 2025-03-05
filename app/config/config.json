@@ -1,0 +1,18 @@
+{
+  "autoloadFolders": [
+    "framework",
+    "controllers",
+    "models",
+    "models/entity",
+    "models/manager",
+    "framework/exceptions",
+    "utils"
+  ],
+  "database": {
+    "host": "127.0.0.1",
+    "dbname": "php-ipssi",
+    "username": "root",
+    "password": ""
+  },
+  "basepath": ""
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "path": "/",
+    "method": "GET",
+    "controller": "UserController",
+    "action": "index",
+    "params": []
+  },
+  {
+    "path": "/users/add",
+    "method": "POST",
+    "controller": "UserController",
+    "action": "add",
+    "params": [
+      "params"
+    ]
+  }
+]
