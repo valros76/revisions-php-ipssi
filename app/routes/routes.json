@@ -2,15 +2,56 @@
   {
     "path": "/",
     "method": "GET",
-    "controller": "UserController",
+    "controller": "Home",
     "action": "index",
+    "params": []
+  },
+  {
+    "path": "/users",
+    "method": "GET",
+    "controller": "User",
+    "action": "index",
+    "params": [
+      "params"
+    ]
+  },
+  {
+    "path": "/users/add",
+    "method": "GET",
+    "controller": "User",
+    "action": "add",
     "params": []
   },
   {
     "path": "/users/add",
     "method": "POST",
-    "controller": "UserController",
+    "controller": "User",
     "action": "add",
+    "params": [
+      "params"
+    ]
+  },
+  {
+    "path": "/users/update",
+    "method": "GET",
+    "controller": "User",
+    "action": "update",
+    "params": []
+  },
+  {
+    "path": "/users/update",
+    "method": "POST",
+    "controller": "User",
+    "action": "update",
+    "params": [
+      "params"
+    ]
+  },
+  {
+    "path": "/users/delete",
+    "method": "POST",
+    "controller": "User",
+    "action": "delete",
     "params": [
       "params"
     ]

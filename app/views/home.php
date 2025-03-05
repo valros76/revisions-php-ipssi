@@ -1,37 +1,33 @@
 <?php
 $headTitle = "Accueil de IPSSI PHP";
-$pageTitle = "Accueil";
+$pageTitle = "IPSSI PHP";
 ob_start();
 ?>
 <section class="main-sections">
   <article class="main-articles">
     <h2 class="main-sections-title">
-      Liste des utilisateurs
+      Bienvenue
     </h2>
-    <?php if (!$users): ?>
-      <p>
-        Il n'y a pas d'utilisateurs dans la base de données.
-      </p>
-    <?php else: ?>
-      <ul>
-        <?php foreach ($users as $user): ?>
-          <li>
-            Pseudo : <?= $user->pseudo ?>
-            <ul>
-              <li>
-                ID : <?= $user->id ?>
-              </li>
-              <li>
-                Pseudo : <?= $user->pseudo ?>
-              </li>
-              <li>
-                Date d'inscription : <?= $user->inscription_date ?>
-              </li>
-            </ul>
-          </li>
-        <?php endforeach ?>
-      </ul>
-    <?php endif ?>
+    <p>
+      Ce site est un projet fil rouge dédié aux révisions de PHP.
+    </p>
+    <p>
+      Vous pouvez y retrouver des fonctionnalités comme :
+    </p>
+    <ul>
+      <li>
+        La visualisation d'une liste d'utilisateurs, provenant de la base de données.
+      </li>
+      <li>
+        Un formulaire d'ajout d'utilisateur en base de données.
+      </li>
+      <li>
+        Un formulaire de modification d'utilisateurs.
+      </li>
+      <li>
+        Un bouton de suppression d'utilisateurs.
+      </li>
+    </ul>
   </article>
 </section>
 <?php

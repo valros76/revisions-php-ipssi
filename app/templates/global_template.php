@@ -6,7 +6,7 @@
   <title>
     <?= $headTitle ?? "Projet PHP IPSSI" ?>
   </title>
-  <link rel="stylesheet" href="public/sources/css/style.css">
+  <link rel="stylesheet" href="/public/sources/css/style.css">
 </head>
 <body>
   <header class="main-head">

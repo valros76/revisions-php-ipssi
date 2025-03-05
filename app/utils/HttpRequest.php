@@ -62,10 +62,18 @@ class HttpRequest
         break;
       case "POST":
       case "PUT":
-        case "DELETE":
-        foreach($this->route->getParams() as $param)
-        {
+      case "DELETE":
+        foreach ($this->route->getParams() as $param) {
           $this->params[] = file_get_contents("php://input");
+          foreach($this->params as $key => $value){
+            if(!str_contains($value, "=")) continue;
+            $paramTotalLength = strlen($value);
+            $posEqual = strpos($value, "=");
+            $newKey = substr($value, 0, $posEqual);;
+            $newValue = substr($value, $posEqual, $paramTotalLength - $posEqual);
+            $newValue = str_replace("=", "", $newValue);
+            $this->params[$key] = [$newKey => $newValue];
+          }
           // if(isset($_POST[$param]))
           // {
           //   $this->params[] = $_POST[$param];
