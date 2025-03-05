@@ -1,32 +1,22 @@
 <?php
-class Autoloader{
+class Autoloader
+{
 
-  public static function register(){
-    spl_autoload_register(function ($class){
-      $class = ucfirst($class);
+  public static function register()
+  {
+    spl_autoload_register(function ($class) {
+      if(file_exists("/app/config/config.json")){
+        return;
+      }
       $class = str_replace("\\", "/", $class);
-
-      $autoloadFolders = [
-        [
-          "dir" => "app/controllers",
-          "file" => "{$class}.php"
-        ],
-        [
-          "dir" => "app/models",
-          "file" => "{$class}.php"
-        ],
-        [
-          "dir" => "app/utils",
-          "file" => "{$class}.php"
-        ],
-      ];
-
-      foreach($autoloadFolders as $folder){
-        if(file_exists("{$folder["dir"]}/{$folder["file"]}")){
-          require_once "{$folder["dir"]}/{$folder["file"]}";
+      $class = ucfirst($class);
+      $configFile = file_get_contents("app/config/config.json");
+      $config = json_decode($configFile);
+      foreach ($config->autoloadFolders as $dir) {
+        if (file_exists("{$config->basepath}/{$dir}/{$class}.php")) {
+          require_once "{$config->basepath}/{$dir}/{$class}.php";
         }
       }
     });
   }
-
 }

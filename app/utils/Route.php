@@ -15,7 +15,7 @@ class Route
     $this->action = $route->action;
     $this->method = $route->method;
     $this->params = $route->param ?? $route->params;
-    $this->manager = $route->manager;
+    $this->manager = $route->manager ?? null;
   }
 
   public function getPath()
@@ -51,7 +51,10 @@ class Route
   public function run($httpRequest, $config)
   {
     $controller = null;
-    $controllerName = "{$this->controller}Controller";
+    $controllerName = "{$this->controller}";
+    if(!str_contains($controllerName, "Controller")){
+      $controllerName = "{$this->controller}Controller";
+    }
     if (class_exists($controllerName)) {
       $controller = new $controllerName($httpRequest, $config);
       if (method_exists($controller, $this->action)) {

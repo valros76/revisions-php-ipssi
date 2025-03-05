@@ -5,10 +5,10 @@ class Router
 
   public function __construct()
   {
-    if (!file_exists("routes/routes.json")) {
+    if (!file_exists("app/routes/routes.json")) {
       exit;
     }
-    $stringRoutes = file_get_contents("routes/routes.json");
+    $stringRoutes = file_get_contents("app/routes/routes.json");
     $this->listRoutes = json_decode($stringRoutes);
   }
 

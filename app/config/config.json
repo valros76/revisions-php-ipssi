@@ -14,5 +14,5 @@
     "username": "root",
     "password": ""
   },
-  "basepath": ""
+  "basepath": "app"
 }
